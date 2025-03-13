@@ -42,4 +42,10 @@ jobs:
           token: ${{ secrets.TEAMS_TOKEN }}
           branch: main
       - name: Print Release Notes
-        run: echo "${{ steps.notes.outputs.release-notes }}"
+        run: |
+          WEBHOOK_URL="https://schneiderelectric.webhook.office.com/webhookb2/446d3a6d-0968-440a-b958-5e6d72a4073a@6e51e1ad-c54b-4b39-b598-0ffe9ae68fef/IncomingWebhook/9555066861fd4424a81b2ec11ea9f7ce/016f5c0f-22ae-4f68-8f3c-5794c1b8702d/V2JjLGH1W7IBfmp2fexP2vcKDcRbW_32RHtRc0-KKCKqo1"
+          PAYLOAD=$(cat <<EOF
+          {
+            "text": "Release info\n
+             echo ${{ steps.notes.outputs.release-notes }}"
+          }
