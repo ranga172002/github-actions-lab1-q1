@@ -34,3 +34,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Generate Release Notes
+        id: notes
+        uses: redcrafter07/release-notes-action@v1.0.1
+        with:
+          tag-name: "v1.1.0"  # Replace with your actual tag name
+          token: ${{ secrets.TEAMS_TOKEN }}
+          branch: main
+      - name: Print Release Notes
+        run: echo "${{ steps.notes.outputs.release-notes }}"
