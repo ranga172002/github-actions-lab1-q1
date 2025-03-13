@@ -49,3 +49,6 @@ jobs:
             "text": "Release info\n
              echo ${{ steps.notes.outputs.release-notes }}"
           }
+          EOF
+          )
+          curl -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "$WEBHOOK_URL"
